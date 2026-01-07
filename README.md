@@ -48,7 +48,7 @@ npm run preview
 
 ## Entrega de Diplomado
 
-- Proyecto correspondiente a la entrega del trabajo de Diplomado (base de e-commerce en React).
+- Proyecto correspondiente a la entrega del trabajo de Diplomado.
 - Repositorio público: https://github.com/espinocoza/Tarea
 - Demo en GitHub Pages: https://espinocoza.github.io/Tarea/
 - Cumplimiento de requisitos técnicos mínimos:
@@ -62,6 +62,6 @@ npm run preview
 
 ## Créditos de imágenes
 
-- Arte oficial de Pokémon provisto por PokeAPI (uso comunitario):
+- Arte oficial de Pokémon provisto por PokeAPI:
 	- https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/
-- Las imágenes se cargan directamente desde el repositorio público de PokeAPI y se utilizan solo con fines educativos/demostrativos.
+
