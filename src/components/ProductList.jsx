@@ -19,6 +19,7 @@ export default function ProductList({ products }) {
           price={p.price}
           category={p.category}
           image={p.image}
+          description={p.description}
         />
       ))}
     </section>

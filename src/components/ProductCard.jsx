@@ -1,4 +1,4 @@
-export default function ProductCard({ name, price, category, image }) {
+export default function ProductCard({ name, price, category, image, description }) {
   return (
     <article className="product-card">
       <div className="image-wrap">
@@ -10,9 +10,9 @@ export default function ProductCard({ name, price, category, image }) {
         <p className="price">
           ${Number(price).toFixed(2)}
         </p>
-        <p className="description">
-          Carta ideal para coleccionistas y entrenadores que quieren mejorar su mazo y presumir en las partidas.
-        </p>
+        {description && (
+          <p className="description">{description}</p>
+        )}
       </div>
     </article>
   )
