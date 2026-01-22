@@ -1,96 +1,69 @@
 PokéCards Store
 
-Este es mi proyecto de e-commerce básico hecho con React + Vite.
-La idea es simular una pequeña tienda de cartas Pokémon donde se pueden ver las cartas, buscar por nombre y filtrar rápido.
+Aplicación de e‑commerce en React + Vite para listar productos y buscar por nombre o categoría. Ahora consume datos dinámicos desde la API pública DummyJSON y está lista para desplegarse tanto en este repositorio (Pages con `main/docs`) como en el repositorio `espinocoza/Tarea-Final`.
 
-Lo hice como parte de la tarea del curso, enfocándome en aprender a crear componentes, usar props, manejar estado y organizar bien el proyecto.
+## ¿Qué hace?
+- Lista productos con imagen, categoría, precio y descripción.
+- Búsqueda en tiempo real por nombre/categoría.
+- Estados de carga y error.
+- Componentes reutilizables y estilos responsivos.
 
-¿Qué hace esta página?
+## Fuente de datos
+- Endpoint: https://dummyjson.com/products?limit=100
+- Servicio: ver [src/services/products.js](src/services/products.js)
+- Mapeo de campos: `{ id, title→name, price, category, thumbnail→image, description }`
 
-Muestra un listado de cartas Pokémon.
-
-Tiene un buscador que filtra por nombre o categoría.
-
-Tiene componentes separados y reutilizables.
-
-Usa datos simulados desde un archivo products.js.
-
- Componentes que creé
-
-Estos son los componentes principales que desarrollé:
-
-Header → muestra el título de la página.
-
-SearchBar → input controlado con useState.
-
-ProductCard → recibe props y muestra cada carta.
-
-ProductList → recorre el array con .map() y renderiza las cards.
-
-Button → botón reutilizable.
-
-Footer → información básica al final de la página.
-
- Estado usado
-
-Uso useState en el buscador para manejar el texto ingresado y filtrar los productos.
-
- Datos simulados
-
-Puse los datos en:
-
-src/data/products.js
-
-
-Cada carta tiene:
-
-{
-  "id": 1,
-  "name": "Charizard",
-  "price": 14.99,
-  "category": "Fuego",
-  "image": "charizard.png"
-}
-
-🔧 Cómo ejecutar el proyecto en local
-
-Si alguien quiere probarlo en su computador:
-
+## Ejecutar en local
+```bash
 npm install
 npm run dev
+```
+Abrir: http://localhost:5173/Tarea/
 
-Versión online (Deploy)
+## Deploy (este repo: Tarea)
+Este repositorio publica desde `main` → carpeta `docs` (GitHub Pages):
+1) Build de producción (usa base `/Tarea/` por defecto):
+```bash
+npm run build
+```
+2) Commit/push de `docs/` si quieres versionar el build (opcional):
+```bash
+git add docs && git commit -m "build: docs" && git push
+```
+3) En GitHub → Settings → Pages: Source `Deploy from a branch`, Branch `main`, Folder `/docs`.
+4) URL: https://espinocoza.github.io/Tarea/
 
-El proyecto está publicado en GitHub Pages acá:
+## Deploy a Tarea-Final
+También puedes publicar el mismo build en `espinocoza/Tarea-Final` (Pages bajo `/Tarea-Final/`).
 
- https://espinocoza.github.io/Tarea/
+Scripts agregados:
+```bash
+# Compila con base /Tarea-Final/
+npm run build:final
 
- Capturas de pantalla
-Vista general
+# Compila y publica docs/ al branch gh-pages de Tarea-Final
+npm run deploy:final
+```
+Requisitos:
+- Acceso de push al repo `espinocoza/Tarea-Final`.
+- En `Tarea-Final` → Settings → Pages: Source `Deploy from a branch`, Branch `gh-pages`.
+- URL: https://espinocoza.github.io/Tarea-Final/
 
-(![1000090464](https://github.com/user-attachments/assets/f84cdfa5-e592-40bb-ba17-53c0e72de190)
-)
+## Solución a “página en blanco”
+Si ves la página en blanco en Pages, normalmente es por una `base` incorrecta en Vite (los assets cargan desde otra ruta):
+- Este repo debe construir con base `/Tarea/`.
+- Para `Tarea-Final`, la base debe ser `/Tarea-Final/`.
 
-Buscador funcionando
+Cómo funciona:
+- [vite.config.js](vite.config.js) usa `process.env.VITE_BASE` (si no está, cae en `/Tarea/`).
+- `npm run build:final` establece `VITE_BASE=/Tarea-Final/` automáticamente.
 
-(![1000090465](https://github.com/user-attachments/assets/e58817c8-046a-4839-8e09-cf99fc8748dd)
-)
+## Componentes principales
+- `Header.jsx`, `SearchBar.jsx`, `ProductCard.jsx`, `ProductList.jsx`, `Loader.jsx`, `ErrorMessage.jsx`, `Footer.jsx`.
 
- Tecnologías que usé
+## Tecnologías
+- React, Vite, JavaScript, CSS, GitHub Pages
 
-React
-
-Vite
-
-JavaScript
-
-CSS
-
-Node.js
-
-GitHub Pages
-
-Comentario personal
-
-Me gustó hacer este proyecto porque pude practicar React ordenado y entendí mucho mejor cómo funcionan los componentes y el estado.
-También aprendí a desplegar una página usando GitHub Pages, que era algo que nunca había hecho.
+## Screenshots
+- Vista general: ./screenshots/home.png
+- Búsqueda: ./screenshots/search.png
